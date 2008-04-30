@@ -35,11 +35,11 @@ under the License.
     <distributionManagement>
         <repository>
             <id>forge-releases</id>
-            <url>http://repository.sonatype.org/content/repositories/releases</url>
+            <url>http://repository.sonatype.org:8081/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>forge-snapshots</id>
-            <url>http://repository.sonatype.org/content/repositories/snapshots</url>
+            <url>http://repository.sonatype.org:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
