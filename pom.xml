@@ -10,7 +10,7 @@
 	<version>4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Sonatype Spice Components</name>
-
+ 
 	<scm>
 		<connection>scm:svn:http://svn.sonatype.org/spice/trunk/spice-parent</connection>
 		<url>http://svn.sonatype.org/spice/trunk/spice-parent</url>
