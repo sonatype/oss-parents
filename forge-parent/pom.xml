@@ -12,7 +12,7 @@
         <url>http://svn.sonatype.org/forge/trunk/forge-pom</url>
         <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-pom</developerConnection>
     </scm>
-
+ 
 
     <distributionManagement>
         <repository>
