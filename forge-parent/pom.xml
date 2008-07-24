@@ -8,20 +8,20 @@
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-pom</connection>
-        <url>http://svn.sonatype.org/forge/trunk/forge-pom</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-pom</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
+        <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-parent</developerConnection>
     </scm>
  
 
     <distributionManagement>
         <repository>
             <id>forge-releases</id>
-            <url>http://repository.sonatype.org:8081/nexus/content/repositories/releases</url>
+            <url>http://repository.sonatype.org/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>forge-snapshots</id>
-            <url>http://repository.sonatype.org:8081/nexus/content/repositories/snapshots</url>
+            <url>http://repository.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
