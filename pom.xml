@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.sonatype.forge</groupId>
@@ -44,6 +45,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
+				<artifactId>plexus-component-annotations</artifactId>
+				<version>1.0-beta-1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-utils</artifactId>
 				<version>1.5.5</version>
 			</dependency>
@@ -58,6 +64,18 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.codehaus.plexus</groupId>
+					<artifactId>plexus-component-metadata</artifactId>
+					<version>1.0-beta-1</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>generate-metadata</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<groupId>org.codehaus.plexus</groupId>
 					<artifactId>plexus-maven-plugin</artifactId>
