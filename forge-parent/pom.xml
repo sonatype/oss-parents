@@ -14,14 +14,20 @@
     </scm>
  
 
+    <properties>
+      <forgeReleaseId>forge-releases</forgeReleaseId>
+      <forgeReleaseUrl>http://repository.sonatype.org/content/repositories/releases</forgeReleaseUrl>
+      <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
+      <forgeSnapshotUrl>http://repository.sonatype.org/content/repositories/snapshots</forgeSnapshotUrl>
+    </properties>
     <distributionManagement>
         <repository>
-            <id>forge-releases</id>
-            <url>http://repository.sonatype.org/content/repositories/releases</url>
+            <id>${forgeReleaseId}</id>
+            <url>${forgeReleaseUrl}</url>
         </repository>
         <snapshotRepository>
-            <id>forge-snapshots</id>
-            <url>http://repository.sonatype.org/content/repositories/snapshots</url>
+            <id>${forgeSnapshotId}</id>
+            <url>${forgeSnapshotUrl}</url>
         </snapshotRepository>
     </distributionManagement>
     
