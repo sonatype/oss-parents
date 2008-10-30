@@ -3,25 +3,31 @@
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3-SNAPSHOT</version>
+    <version>3</version>
     <name>Sonatype Forge Parent Pom</name>
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
-        <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-parent</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/forge/tags/forge-parent-3</connection>
+        <url>http://svn.sonatype.org/forge/tags/forge-parent-3</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/forge/tags/forge-parent-3</developerConnection>
     </scm>
  
 
+    <properties>
+      <forgeReleaseId>forge-releases</forgeReleaseId>
+      <forgeReleaseUrl>http://repository.sonatype.org/content/repositories/releases</forgeReleaseUrl>
+      <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
+      <forgeSnapshotUrl>http://repository.sonatype.org/content/repositories/snapshots</forgeSnapshotUrl>
+    </properties>
     <distributionManagement>
         <repository>
-            <id>forge-releases</id>
-            <url>http://repository.sonatype.org/content/repositories/releases</url>
+            <id>${forgeReleaseId}</id>
+            <url>${forgeReleaseUrl}</url>
         </repository>
         <snapshotRepository>
-            <id>forge-snapshots</id>
-            <url>http://repository.sonatype.org/content/repositories/snapshots</url>
+            <id>${forgeSnapshotId}</id>
+            <url>${forgeSnapshotUrl}</url>
         </snapshotRepository>
     </distributionManagement>
     
