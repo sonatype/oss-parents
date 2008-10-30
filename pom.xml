@@ -21,18 +21,18 @@
     <parent>
         <groupId>org.sonatype.forge</groupId>
         <artifactId>forge-parent</artifactId>
-        <version>2</version>
+        <version>3</version>
     </parent>
     <groupId>org.sonatype.plugins</groupId>
     <artifactId>plugins-parent</artifactId>
-    <version>3-SNAPSHOT</version>
+    <version>3</version>
     <packaging>pom</packaging>
     <name>Sonatype Plugins Parent</name>
 
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/plugins/trunk/plugins-parent</connection>
-        <url>http://svn.sonatype.org/plugins/trunk/plugins-parent</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/plugins/trunk/plugins-parent</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/plugins/tags/plugins-parent-3</connection>
+        <url>http://svn.sonatype.org/plugins/tags/plugins-parent-3</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/plugins/tags/plugins-parent-3</developerConnection>
     </scm>
     
     <dependencyManagement>
