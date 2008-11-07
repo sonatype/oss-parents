@@ -57,6 +57,11 @@
 				<artifactId>jetty</artifactId>
 				<version>${jetty.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-client</artifactId>
+				<version>${jetty.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
