@@ -18,7 +18,7 @@
 	</scm>
 
 	<properties>
-		<jetty.version>6.1.12</jetty.version>
+		<jetty.version>6.1.14</jetty.version>
 	</properties>
 
 	<dependencyManagement>
