@@ -18,7 +18,10 @@
 	</scm>
 
 	<properties>
-		<jetty.version>6.1.14</jetty.version>
+    <!-- 2008.12.07 Oleg: reverted to 6.1.12 as http transport only works with that version
+     | Please always sync with mercury-http-transport !!
+     -->
+		<jetty.version>6.1.12</jetty.version>
 	</properties>
 
 	<dependencyManagement>
