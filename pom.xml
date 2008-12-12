@@ -1,85 +1,90 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.forge</groupId>
-		<artifactId>forge-parent</artifactId>
-		<version>3</version>
-	</parent>
-	
-  <groupId>org.sonatype.nexus.plugins</groupId>
-	<artifactId>nexus-plugins-parent</artifactId>
-	<version>1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	
-	<name>Sonatype Nexus Plugin Components</name>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.forge</groupId>
+    <artifactId>forge-parent</artifactId>
+    <version>3</version>
+  </parent>
 
-	<scm>
-		<connection>scm:svn:http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</connection>
-		<url>http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</url>
-		<developerConnection>scm:svn:https://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</developerConnection>
-	</scm>
+  <groupId>org.sonatype.nexus.plugins</groupId>
+  <artifactId>nexus-plugins-parent</artifactId>
+  <version>1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Sonatype Nexus Plugin Components</name>
+
+  <scm>
+    <connection>scm:svn:http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</connection>
+    <url>http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</url>
+    <developerConnection>scm:svn:https://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</developerConnection>
+  </scm>
 
   <properties>
-  	<nexus.version>1.1.0</nexus.version>
-	</properties>
+    <nexus.version>1.3.0-SNAPSHOT</nexus.version>
+  </properties>
 
   <developers>
-      <developer>
-          <id>jedelson</id>
-          <name>Justin Edelson</name>
-          <email>justin.edelson@mtvstaff.com</email>
-          <roles>
-              <role>developer</role>
-          </roles>
-      </developer>
+    <developer>
+      <id>jedelson</id>
+      <name>Justin Edelson</name>
+      <email>justin.edelson@mtvstaff.com</email>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
   </developers>
-  
-	<dependencyManagement>
-		<dependencies>
-      <dependency>
-          <groupId>org.sonatype.nexus</groupId>
-          <artifactId>nexus-app</artifactId>
-          <version>${nexus.version}</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.4</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>com.mtvi.plateng</groupId>
-          <artifactId>test-support</artifactId>
-          <version>1.0-alpha-4</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.easymock</groupId>
-          <artifactId>easymockclassextension</artifactId>
-          <version>2.4</version>
-          <scope>test</scope>
-      </dependency>
-		</dependencies>
-	</dependencyManagement>
 
-	<build>
-		<pluginManagement>
-			<plugins>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.sonatype.nexus</groupId>
+        <artifactId>nexus-rest-api</artifactId>
+        <version>${nexus.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.4</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.mtvi.plateng</groupId>
+        <artifactId>test-support</artifactId>
+        <version>1.0-alpha-4</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymockclassextension</artifactId>
+        <version>2.4</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
         <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.5</source>
-                <target>1.5</target>
-                <showWarnings>true</showWarnings>
-                <showDeprecation>true</showDeprecation>
-            </configuration>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.5</source>
+            <target>1.5</target>
+            <showWarnings>true</showWarnings>
+            <showDeprecation>true</showDeprecation>
+          </configuration>
         </plugin>
         <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.2-beta-2</version>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2-beta-2</version>
         </plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+        <plugin>
+          <groupId>org.codehaus.plexus</groupId>
+          <artifactId>plexus-component-metadata</artifactId>
+          <version>1.0-beta-1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
