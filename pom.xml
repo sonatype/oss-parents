@@ -22,6 +22,7 @@
      | Please always sync with mercury-http-transport !!
      -->
 		<jetty.version>6.1.12</jetty.version>
+		<plexus.version>1.0-beta-3.0.3</plexus.version>
 	</properties>
 
 	<dependencyManagement>
@@ -29,7 +30,7 @@
 			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-container-default</artifactId>
-				<version>1.0-beta-1</version>
+				<version>${plexus.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>commons-logging</groupId>
@@ -48,7 +49,7 @@
 			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-component-annotations</artifactId>
-				<version>1.0-beta-1</version>
+				<version>${plexus.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
@@ -80,7 +81,7 @@
 				<plugin>
 					<groupId>org.codehaus.plexus</groupId>
 					<artifactId>plexus-component-metadata</artifactId>
-					<version>1.0-beta-3.0.1</version>
+					<version>${plexus.version}</version>
 					<executions>
 						<execution>
 							<id>process-classes</id>
