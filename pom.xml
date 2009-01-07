@@ -7,14 +7,14 @@
 	</parent>
 	<groupId>org.sonatype.spice</groupId>
 	<artifactId>spice-parent</artifactId>
-	<version>11</version>
+	<version>12-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Sonatype Spice Components</name>
 
 	<scm>
-		<connection>scm:svn:http://svn.sonatype.org/spice/tags/spice-parent-11</connection>
-		<url>http://svn.sonatype.org/spice/tags/spice-parent-11</url>
-		<developerConnection>scm:svn:https://svn.sonatype.org/spice/tags/spice-parent-11</developerConnection>
+		<connection>scm:svn:http://svn.sonatype.org/spice/trunk/spice-parent</connection>
+		<url>http://svn.sonatype.org/spice/trunk/spice-parent</url>
+		<developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/spice-parent</developerConnection>
 	</scm>
 
 	<properties>
