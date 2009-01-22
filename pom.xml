@@ -116,7 +116,21 @@
         <plugin>
           <groupId>org.codehaus.plexus</groupId>
           <artifactId>plexus-component-metadata</artifactId>
-          <version>1.0-beta-1.2</version>
+          <version>1.0-beta-3.0.4</version>
+          <executions>
+            <execution>
+              <id>process-classes</id>
+              <goals>
+                <goal>generate-metadata</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>process-test-classes</id>
+              <goals>
+                <goal>generate-test-metadata</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
