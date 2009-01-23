@@ -25,6 +25,8 @@
     <nexusPluginsReleaseUrl>http://repository.sonatype.org/service/local/staging/deploy/maven2</nexusPluginsReleaseUrl>
     <nexusPluginsSnapshotId>nexus-plugins-snapshots</nexusPluginsSnapshotId>
     <nexusPluginsSnapshotUrl>http://repository.sonatype.org/content/repositories/nexus-plugins-snapshots</nexusPluginsSnapshotUrl>
+    <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
+    <nexusPluginsSiteUrl>dav:https://svn.sonatype.org/nexus-plugins/sites/</nexusPluginsSiteUrl>
   </properties>
 
   <distributionManagement>
@@ -36,8 +38,12 @@
             <id>${nexusPluginsSnapshotId}</id>
             <url>${nexusPluginsSnapshotUrl}</url>
         </snapshotRepository>
+        <site>
+            <id>${nexusPluginsSiteId}</id>
+            <url>${nexusPluginsSiteUrl}</url>
+        </site>
     </distributionManagement>
-
+  
   <dependencyManagement>
     <dependencies>
       <dependency>
