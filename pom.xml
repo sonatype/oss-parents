@@ -20,7 +20,6 @@
   </scm>
 
   <properties>
-    <nexus.version>1.2.0.4</nexus.version>
 	<nexusPluginsReleaseId>nexus-plugins-releases</nexusPluginsReleaseId>
     <nexusPluginsReleaseUrl>http://repository.sonatype.org/service/local/staging/deploy/maven2</nexusPluginsReleaseUrl>
     <nexusPluginsSnapshotId>nexus-plugins-snapshots</nexusPluginsSnapshotId>
@@ -46,12 +45,6 @@
   
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.sonatype.nexus</groupId>
-        <artifactId>nexus-rest-api</artifactId>
-        <version>${nexus.version}</version>
-        <scope>provided</scope>
-      </dependency>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
