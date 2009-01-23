@@ -42,34 +42,40 @@
             <url>${nexusPluginsSiteUrl}</url>
         </site>
     </distributionManagement>
-  
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.4</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.mtvi.plateng</groupId>
-        <artifactId>test-support</artifactId>
-        <version>1.0-alpha-4</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.easymock</groupId>
-        <artifactId>easymockclassextension</artifactId>
-        <version>2.4</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-      	<groupId>commons-io</groupId>
-      	<artifactId>commons-io</artifactId>
-      	<version>1.4</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.sonatype.nexus</groupId>
+				<artifactId>nexus-rest-api</artifactId>
+				<version>${nexus.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.4</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.mtvi.plateng</groupId>
+				<artifactId>test-support</artifactId>
+				<version>1.0-alpha-4</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymockclassextension</artifactId>
+				<version>2.4</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>1.4</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
   <build>
     <plugins>
