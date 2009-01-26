@@ -43,7 +43,7 @@
         </site>
     </distributionManagement>
 
-	<dependencyManagement>
+	<!-- <dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.sonatype.nexus</groupId>
@@ -75,7 +75,7 @@
 				<version>1.4</version>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
+	</dependencyManagement> -->
 
   <build>
     <plugins>
@@ -118,7 +118,7 @@
             </dependency>
           </dependencies>
         </plugin>
-        <plugin>
+        <!-- <plugin>
           <groupId>org.codehaus.plexus</groupId>
           <artifactId>plexus-component-metadata</artifactId>
           <version>1.0-beta-3.0.4</version>
@@ -136,7 +136,7 @@
               </goals>
             </execution>
           </executions>
-        </plugin>
+        </plugin> -->
       </plugins>
     </pluginManagement>
   </build>
