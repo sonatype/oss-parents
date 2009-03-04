@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
-    <version>3</version>
+    <version>5-SNAPSHOT</version>
   </parent>
 
   <groupId>org.sonatype.nexus.plugins</groupId>
@@ -20,23 +20,11 @@
   </scm>
 
   <properties>
-	<nexusPluginsReleaseId>nexus-plugins-releases</nexusPluginsReleaseId>
-    <nexusPluginsReleaseUrl>http://repository.sonatype.org/service/local/staging/deploy/maven2</nexusPluginsReleaseUrl>
-    <nexusPluginsSnapshotId>nexus-plugins-snapshots</nexusPluginsSnapshotId>
-    <nexusPluginsSnapshotUrl>http://repository.sonatype.org/content/repositories/nexus-plugins-snapshots</nexusPluginsSnapshotUrl>
-    <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
-    <nexusPluginsSiteUrl>dav:https://svn.sonatype.org/nexus-plugins/sites/</nexusPluginsSiteUrl>
+	<nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
+    <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
 
   <distributionManagement>
-        <repository>
-            <id>${nexusPluginsReleaseId}</id>
-            <url>${nexusPluginsReleaseUrl}</url>
-        </repository>
-        <snapshotRepository>
-            <id>${nexusPluginsSnapshotId}</id>
-            <url>${nexusPluginsSnapshotUrl}</url>
-        </snapshotRepository>
         <site>
             <id>${nexusPluginsSiteId}</id>
             <url>${nexusPluginsSiteUrl}</url>
@@ -103,13 +91,9 @@
             <showDeprecation>true</showDeprecation>
           </configuration>
         </plugin>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.2-beta-2</version>
-        </plugin>
+
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.3</version>
           <dependencies>
             <dependency>
               <groupId>org.apache.maven.shared</groupId>
