@@ -3,14 +3,14 @@
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5-SNAPSHOT</version>
+    <version>5</version>
     <name>Sonatype Forge Parent Pom</name>
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
-        <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-parent</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/forge/tags/forge-parent-5</connection>
+        <url>http://svn.sonatype.org/forge/tags/forge-parent-5</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/forge/tags/forge-parent-5</developerConnection>
     </scm>
  
 
