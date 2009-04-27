@@ -17,6 +17,24 @@
     <developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/spice-parent</developerConnection>
   </scm>
 
+  <licenses>
+    <license>
+      <name>Apache Public License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+	<ciManagement>
+	  <system>Hudson</system>
+	  <url>https://grid.sonatype.org/ci/view/Spice/</url>
+	</ciManagement>
+	
+  <issueManagement>
+    <system>JIRA</system>
+    <url>https://issues.sonatype.org/browse/SPICE</url>
+  </issueManagement>
+  
   <properties>
     <!--
       2008.12.07 Oleg: reverted to 6.1.12 as http transport only works with that version | Please always sync with
@@ -32,6 +50,7 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-container-default</artifactId>
         <version>${plexus.version}</version>
+        <scope>provided</scope>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -51,6 +70,7 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-component-annotations</artifactId>
         <version>${plexus.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.codehaus.plexus</groupId>
@@ -118,4 +138,77 @@
       </plugins>
     </pluginManagement>
   </build>
+  
+	<reporting>
+	  <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <omitVisitors>UnreadFields</omitVisitors>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <targetJdk>1.5</targetJdk>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <tagletArtifacts>
+            <tagletArtifact>
+              <groupId>org.apache.maven.plugin-tools</groupId>
+              <artifactId>maven-plugin-tools-javadoc</artifactId>
+              <version>2.5</version>
+            </tagletArtifact>
+            <tagletArtifact>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-javadoc</artifactId>
+              <version>1.0</version>
+            </tagletArtifact>
+          </tagletArtifacts>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.1.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <!-- Broken, don't know why. -->
+              <report>dependencies</report>
+              <report>project-team</report>
+              <report>mailing-list</report>
+              <report>cim</report>
+              <report>issue-tracking</report>
+              <report>license</report>
+              <report>scm</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+	  </plugins>
+	</reporting>
+	
 </project>
