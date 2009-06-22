@@ -50,7 +50,6 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-container-default</artifactId>
         <version>${plexus.version}</version>
-        <scope>provided</scope>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -70,7 +69,6 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-component-annotations</artifactId>
         <version>${plexus.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.codehaus.plexus</groupId>
@@ -100,6 +98,46 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>m2e</id>
+      <activation>
+        <property>
+          <name>m2e.version</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+	      <plugin>
+	        <groupId>org.maven.ide.eclipse</groupId>
+	        <artifactId>lifecycle-mapping</artifactId>
+	        <version>0.9.9-SNAPSHOT</version>
+	        <configuration>
+	          <mappingId>customizable</mappingId>
+	          <configurators>
+	            <configurator id='org.maven.ide.eclipse.jdt.javaConfigurator'/>
+	            <configurator id='org.maven.ide.eclipse.modello.modelloConfigurator'/>
+	            <configurator id='org.maven.ide.eclipse.plexus.annotations.plexusConfigurator'/>
+	          </configurators>
+	          <mojoExecutions>
+	            <mojoExecution>org.apache.maven.plugins:maven-resources-plugin::</mojoExecution>
+	          </mojoExecutions>
+	        </configuration>
+	      </plugin>
+        </plugins>
+        <pluginManagement>
+          <plugins>
+	        <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-resources-plugin</artifactId>
+	          <version>2.4-SNAPSHOT</version>
+	        </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
 
   <build>
     <pluginManagement>
@@ -139,6 +177,14 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.4.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.modello</groupId>
+          <artifactId>modello-maven-plugin</artifactId>
+          <version>1.0.2</version>
+          <configuration>
+            <useJava5>true</useJava5>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
