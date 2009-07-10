@@ -20,52 +20,38 @@
   </scm>
 
   <properties>
+    <nexus.version>1.4.0-SNAPSHOT</nexus.version>
 	<nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
     <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
 
   <distributionManagement>
-        <site>
-            <id>${nexusPluginsSiteId}</id>
-            <url>${nexusPluginsSiteUrl}</url>
-        </site>
-    </distributionManagement>
+    <site>
+      <id>${nexusPluginsSiteId}</id>
+      <url>${nexusPluginsSiteUrl}</url>
+    </site>
+  </distributionManagement>
 
-	<!-- <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.sonatype.nexus</groupId>
-				<artifactId>nexus-rest-api</artifactId>
-				<version>${nexus.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.4</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.mtvi.plateng</groupId>
-				<artifactId>test-support</artifactId>
-				<version>1.0-alpha-4</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.easymock</groupId>
-				<artifactId>easymockclassextension</artifactId>
-				<version>2.4</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>1.4</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement> -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.sonatype.nexus</groupId>
+        <artifactId>nexus-plugin-api</artifactId>
+        <version>${nexus.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.sonatype.nexus</groupId>
+        <artifactId>nexus-plugin-packaging</artifactId>
+        <version>${nexus.version}</version>
+      </extension>
+    </extensions>
+    
     <plugins>
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
@@ -80,6 +66,7 @@
         </executions>
       </plugin>
     </plugins>
+    
     <pluginManagement>
       <plugins>
         <plugin>
@@ -102,26 +89,9 @@
             </dependency>
           </dependencies>
         </plugin>
-        <!-- <plugin>
-          <groupId>org.codehaus.plexus</groupId>
-          <artifactId>plexus-component-metadata</artifactId>
-          <version>1.0-beta-3.0.4</version>
-          <executions>
-            <execution>
-              <id>process-classes</id>
-              <goals>
-                <goal>generate-metadata</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>process-test-classes</id>
-              <goals>
-                <goal>generate-test-metadata</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin> -->
       </plugins>
     </pluginManagement>
+    
   </build>
+  
 </project>
