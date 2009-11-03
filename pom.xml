@@ -12,9 +12,9 @@
   <name>Sonatype Spice Components</name>
 
   <scm>
-    <connection>scm:svn:http://svn.sonatype.org/spice/trunk/spice-parent</connection>
-    <url>http://svn.sonatype.org/spice/trunk/spice-parent</url>
-    <developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/spice-parent</developerConnection>
+    <connection>scm:svn:http://svn.sonatype.org/spice/trunk</connection>
+    <url>http://svn.sonatype.org/spice/trunk</url>
+    <developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk</developerConnection>
   </scm>
 
   <licenses>
@@ -126,15 +126,6 @@
 	        </configuration>
 	      </plugin>
         </plugins>
-        <pluginManagement>
-          <plugins>
-	        <plugin>
-	          <groupId>org.apache.maven.plugins</groupId>
-	          <artifactId>maven-resources-plugin</artifactId>
-	          <version>2.4-SNAPSHOT</version>
-	        </plugin>
-          </plugins>
-        </pluginManagement>
       </build>
     </profile>
   </profiles>
@@ -185,6 +176,11 @@
           <configuration>
             <useJava5>true</useJava5>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
