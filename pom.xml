@@ -11,7 +11,7 @@
   <version>5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Sonatype Nexus Plugin Components</name>
+  <name>Sonatype Nexus Plugins Parent</name>
 
   <scm>
     <connection>scm:svn:http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</connection>
@@ -39,6 +39,12 @@
         <artifactId>nexus-plugin-api</artifactId>
         <version>${nexus.version}</version>
         <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.sonatype.nexus</groupId>
+        <artifactId>nexus-plugin-test-api</artifactId>
+        <version>${nexus.version}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
