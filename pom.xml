@@ -20,7 +20,7 @@
   </scm>
 
   <properties>
-    <nexus.version>1.4.0</nexus.version>
+    <nexus.version>1.5.0</nexus.version>
     <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
     <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
@@ -66,7 +66,7 @@
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>app-lifecycle-maven-plugin</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
         
         <extensions>true</extensions>
         
@@ -74,7 +74,7 @@
           <dependency>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>app-lifecycle-nexus</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
           </dependency>
         </dependencies>
       </plugin>
