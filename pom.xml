@@ -20,7 +20,7 @@
   </scm>
 
   <properties>
-    <nexus.version>1.5.0</nexus.version>
+    <nexus.version>1.5.1-SNAPSHOT</nexus.version>
     <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
     <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
@@ -63,13 +63,12 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>app-lifecycle-maven-plugin</artifactId>
         <version>1.1</version>
-        
         <extensions>true</extensions>
-        
         <dependencies>
           <dependency>
             <groupId>org.sonatype.plugins</groupId>
@@ -77,6 +76,62 @@
             <version>1.1</version>
           </dependency>
         </dependencies>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0-alpha-4</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <!-- we don't need these until JUST BEFORE integration testing, 
+                so moving to a later phase to get out of 
+                the way of m2eclipse. -->
+            <phase>package</phase>
+            <id>enforce</id>
+            <configuration>
+              <rules>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>velocity:velocity:jar:1.4</exclude>
+                    <exclude>velocity:velocity-dep:jar:1.4</exclude>
+                  </excludes>
+                  <message> Velocity 1.4 is banned, Velocity 1.5 should be used! You probably added a dependency that is missing the exclusions. </message>
+                </bannedDependencies>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>commons-logging:*</exclude>
+                  </excludes>
+                  <message> commons-logging conflicts with slf4j. You probably added a dependency that is missing the exclusions. </message>
+                </bannedDependencies>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>*:plexus-component-api</exclude>
+                  </excludes>
+                  <message> plexus-component-api conflicts with newer plexus-container-default. You probably added a dependency that is plexus component made with older plexus container. </message>
+                </bannedDependencies>
+                <!--  <requirePluginVersions>
+                <banSnapshots>false</banSnapshots>
+                </requirePluginVersions>-->
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
@@ -94,13 +149,7 @@
 
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <dependencies>
-            <dependency>
-              <groupId>org.apache.maven.shared</groupId>
-              <artifactId>maven-filtering</artifactId>
-              <version>1.0-beta-3-SONATYPE-682132</version>
-            </dependency>
-          </dependencies>
+          <version>2.4</version>
         </plugin>
 
         <plugin>
@@ -110,6 +159,63 @@
             <failIfNoTests>false</failIfNoTests>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>net.sf.alchim</groupId>
+          <artifactId>yuicompressor-maven-plugin</artifactId>
+          <version>0.7.1</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>2.0.1</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>failsafe-maven-plugin</artifactId>
+          <version>2.4.3-alpha-2-SONATYPE-11146</version>
+          <configuration>
+            <forkMode>always</forkMode>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-test-environment-maven-plugin</artifactId>
+          <version>1.4-SNAPSHOT</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>setup-nexus-plugin-environment</goal>
+                <goal>package</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <nexusBundleArtifact>
+              <groupId>org.sonatype.nexus</groupId>
+              <artifactId>nexus-distribution</artifactId>
+              <version>${nexus.version}</version>
+              <type>zip</type>
+              <classifier>runtime-guice-jsw</classifier>
+            </nexusBundleArtifact>
+
+            <nexusBundleName>nexus-oss-${nexus.version}</nexusBundleName>
+
+            <nexusVersion>${nexus.version}</nexusVersion>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
