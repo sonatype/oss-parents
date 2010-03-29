@@ -204,10 +204,10 @@
           <configuration>
             <nexusBundleArtifact>
               <groupId>org.sonatype.nexus</groupId>
-              <artifactId>nexus-distribution</artifactId>
+              <artifactId>nexus-oss-webapp</artifactId>
               <version>${nexus.version}</version>
               <type>zip</type>
-              <classifier>runtime-guice-jsw</classifier>
+              <classifier>bundle</classifier>
             </nexusBundleArtifact>
 
             <nexusBundleName>nexus-oss-${nexus.version}</nexusBundleName>
