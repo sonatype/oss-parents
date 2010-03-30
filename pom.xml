@@ -210,7 +210,7 @@
               <classifier>bundle</classifier>
             </nexusBundleArtifact>
 
-            <nexusBundleName>nexus-oss-${nexus.version}</nexusBundleName>
+            <nexusBundleName>nexus-oss-webapp-${nexus.version}</nexusBundleName>
 
             <nexusVersion>${nexus.version}</nexusVersion>
           </configuration>
