@@ -4,6 +4,7 @@
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <version>5</version>
+    <relativePath />
   </parent>
 
   <groupId>org.sonatype.nexus.plugins</groupId>
@@ -20,7 +21,7 @@
   </scm>
 
   <properties>
-    <nexus.version>1.5.1-SNAPSHOT</nexus.version>
+    <nexus.version>1.6.0</nexus.version>
     <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
     <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
@@ -52,13 +53,15 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
+        <version>2.1.1</version>
         <executions>
           <execution>
             <id>attach-sources</id>
             <phase>verify</phase>
             <goals>
-              <goal>jar</goal>
+              <goal>jar-no-fork</goal>
             </goals>
           </execution>
         </executions>
