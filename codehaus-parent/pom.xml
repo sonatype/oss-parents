@@ -4,7 +4,7 @@
 
 	<groupId>org.codehaus</groupId>
 	<artifactId>codehaus-parent</artifactId>
-	<version>1-SNAPSHOT</version>
+	<version>1</version>
 	<packaging>pom</packaging>
 
 	<name>Codehaus Parent</name>
