@@ -3,7 +3,7 @@
 
 	<groupId>org.sonatype.oss</groupId>
 	<artifactId>oss-parent</artifactId>
-	<version>3-SNAPSHOT</version>
+	<version>3</version>
 	<packaging>pom</packaging>
 
 	<name>Sonatype OSS Parent</name>
@@ -11,9 +11,9 @@
 	<description>Sonatype helps open source projects to set up maven repositories on http://oss.sonatype.org. </description>
 
 	<scm>
-		<connection>scm:svn:http://svn.sonatype.org/spice/trunk/oss/oss-parent</connection>
-		<developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/oss/oss-parent</developerConnection>
-		<url>http://svn.sonatype.org/spice/trunk/oss/oss-parent</url>
+		<connection>scm:svn:http://svn.sonatype.org/spice/tags/oss-parent-3</connection>
+		<developerConnection>scm:svn:https://svn.sonatype.org/spice/tags/oss-parent-3</developerConnection>
+		<url>http://svn.sonatype.org/spice/tags/oss-parent-3</url>
 	</scm>
 
 	<repositories>
