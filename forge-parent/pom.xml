@@ -27,6 +27,11 @@ under the License.
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
 
+    <organization>
+        <name>Sonatype, Inc.</name>
+        <url>http://www.sonatype.com/</url>
+    </organization>
+
     <scm>
         <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
         <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
