@@ -35,7 +35,7 @@
 		<snapshotRepository>
 			<id>sonatype-nexus-snapshots</id>
 			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<url>${sonatypeOssDistMgmtSnapshotsUrl}</url>
 		</snapshotRepository>
 		<repository>
 			<id>sonatype-nexus-staging</id>
@@ -76,6 +76,8 @@
 					<version>2.0</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
+						<useReleaseProfile>false</useReleaseProfile>
+						<arguments>-Psonatype-oss-release</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -84,17 +86,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonatypeOssDistMgmtSnapshotsUrl>https://oss.sonatype.org/content/repositories/snapshots/</sonatypeOssDistMgmtSnapshotsUrl>
 	</properties>
 
 	<profiles>
 		<profile>
-			<id>sonatype-release-profile</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
+			<id>sonatype-oss-release</id>
 			<build>
 				<plugins>
 					<plugin>
