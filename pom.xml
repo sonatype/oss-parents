@@ -34,8 +34,8 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>codehaus-nexus-snapshots</id>
-			<name>${distMgmtSnapshotsName}</name>
-			<url>${distMgmtSnapshotsUrl}</url>
+			<name>Codehaus Nexus Snapshots</name>
+			<url>${codehausDistMgmtSnapshotsUrl}</url>
 		</snapshotRepository>
 		<repository>
 			<id>codehaus-nexus-staging</id>
@@ -86,8 +86,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<distMgmtSnapshotsName>Codehaus Nexus Snapshots</distMgmtSnapshotsName>
-		<distMgmtSnapshotsUrl>https://nexus.codehaus.org/content/repositories/snapshots/</distMgmtSnapshotsUrl>
+		<codehausDistMgmtSnapshotsUrl>https://nexus.codehaus.org/content/repositories/snapshots/</codehausDistMgmtSnapshotsUrl>
 	</properties>
 
 	<profiles>
