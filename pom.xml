@@ -3,7 +3,7 @@
 
 	<groupId>org.codehaus</groupId>
 	<artifactId>codehaus-parent</artifactId>
-	<version>3-SNAPSHOT</version>
+	<version>3</version>
 	<packaging>pom</packaging>
 
 	<name>Codehaus Parent</name>
@@ -11,9 +11,9 @@
 	<description>The Codehaus is a collaborative environment for building open source projects with a strong emphasis on modern languages, focussed on quality components that meet real world needs. </description>
 
 	<scm>
-		<connection>scm:svn:http://svn.sonatype.org/spice/trunk/oss/codehaus-parent</connection>
-		<developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/oss/codehaus-parent</developerConnection>
-		<url>http://svn.sonatype.org/spice/trunk/oss/codehaus-parent</url>
+		<connection>scm:svn:http://svn.sonatype.org/spice/tags/codehaus-parent-3</connection>
+		<developerConnection>scm:svn:https://svn.sonatype.org/spice/tags/codehaus-parent-3</developerConnection>
+		<url>http://svn.sonatype.org/spice/tags/codehaus-parent-3</url>
 	</scm>
 
 	<repositories>
