@@ -34,8 +34,8 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>codehaus-nexus-snapshots</id>
-			<name>Codehaus Nexus Snapshots</name>
-			<url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
+			<name>${distMgmtSnapshotsName}</name>
+			<url>${distMgmtSnapshotsUrl}</url>
 		</snapshotRepository>
 		<repository>
 			<id>codehaus-nexus-staging</id>
@@ -76,6 +76,8 @@
 					<version>2.0</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
+						<useReleaseProfile>false</useReleaseProfile>
+						<arguments>-Pcodehaus-release</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -84,17 +86,13 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<distMgmtSnapshotsName>Codehaus Nexus Snapshots</distMgmtSnapshotsName>
+		<distMgmtSnapshotsUrl>https://nexus.codehaus.org/content/repositories/snapshots/</distMgmtSnapshotsUrl>
 	</properties>
 
 	<profiles>
 		<profile>
-			<id>codehaus-release-profile</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
+			<id>codehaus-release</id>
 			<build>
 				<plugins>
 					<plugin>
