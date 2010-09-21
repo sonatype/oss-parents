@@ -21,7 +21,6 @@
   </scm>
 
   <properties>
-    <nexus.version>1.6.0</nexus.version>
     <nexusPluginsSiteId>nexus-plugins-site</nexusPluginsSiteId>
     <nexusPluginsSiteUrl>dav:https://sites.sonatype.org/nexus-plugins</nexusPluginsSiteUrl>
   </properties>
