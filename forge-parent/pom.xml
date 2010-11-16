@@ -39,6 +39,7 @@ under the License.
     </scm>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <forgeReleaseId>forge-releases</forgeReleaseId>
         <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
         <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
