@@ -9,15 +9,15 @@
 
   <groupId>org.sonatype.nexus.plugins</groupId>
   <artifactId>nexus-plugins-parent</artifactId>
-  <version>8-SNAPSHOT</version>
+  <version>8</version>
   <packaging>pom</packaging>
 
   <name>Sonatype Nexus Plugins Parent</name>
 
   <scm>
-    <connection>scm:svn:http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</connection>
-    <url>http://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</url>
-    <developerConnection>scm:svn:https://svn.sonatype.org/nexus-plugins/trunk/nexus-plugins-parent</developerConnection>
+    <connection>scm:svn:http://svn.sonatype.org/nexus-plugins/tags/nexus-plugins-parent-8</connection>
+    <url>http://svn.sonatype.org/nexus-plugins/tags/nexus-plugins-parent-8</url>
+    <developerConnection>scm:svn:https://svn.sonatype.org/nexus-plugins/tags/nexus-plugins-parent-8</developerConnection>
   </scm>
 
   <properties>
