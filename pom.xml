@@ -25,7 +25,7 @@ under the License.
     <name>Sonatype Forge Parent Pom</name>
 
     <inceptionYear>2008</inceptionYear>
-    <url>http://forge.sonatype.com/</url>
+    <url>${forgeSiteUrl}</url>
 
     <organization>
         <name>Sonatype, Inc.</name>
@@ -44,6 +44,8 @@ under the License.
         <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
         <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
         <forgeSnapshotUrl>https://repository.sonatype.org/content/repositories/snapshots</forgeSnapshotUrl>
+        <forgeSiteId>forge-sites</forgeSiteId>
+        <forgeSiteUrl>https://repository.sonatype.org/content/sites/maven-sites/forge-parent</forgeSiteUrl>
     </properties>
 
     <distributionManagement>
@@ -55,6 +57,10 @@ under the License.
             <id>${forgeSnapshotId}</id>
             <url>${forgeSnapshotUrl}</url>
         </snapshotRepository>
+        <site>
+            <id>${forgeSiteId}</id>
+            <url>dav:${forgeSiteUrl}</url>
+        </site>
     </distributionManagement>
 
     <build>
@@ -148,7 +154,7 @@ under the License.
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>2.0-beta-7</version>
+                    <version>3.0-beta-3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -165,6 +171,19 @@ under the License.
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-descriptor</id>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                  </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <reporting>
@@ -172,12 +191,12 @@ under the License.
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.0</version>
+                <version>2.3</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>1.1.1</version>
+                <version>2.3.1</version>
                 <configuration>
                     <omitVisitors>UnreadFields</omitVisitors>
                 </configuration>
@@ -190,7 +209,7 @@ under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>2.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
