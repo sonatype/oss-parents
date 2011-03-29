@@ -21,7 +21,7 @@ under the License.
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
-    <version>9</version>
+    <version>10-SNAPSHOT</version>
     <name>Sonatype Forge Parent Pom</name>
 
     <inceptionYear>2008</inceptionYear>
@@ -33,9 +33,9 @@ under the License.
     </organization>
 
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/forge/tags/forge-parent-9</connection>
-        <url>http://svn.sonatype.org/forge/tags/forge-parent-9</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/forge/tags/forge-parent-9</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
+        <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-parent</developerConnection>
     </scm>
 
     <properties>
