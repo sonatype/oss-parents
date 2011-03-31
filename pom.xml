@@ -12,14 +12,14 @@
     </parent>
     <groupId>org.sonatype.plugins</groupId>
     <artifactId>plugins-parent</artifactId>
-    <version>7-SNAPSHOT</version>
+    <version>7</version>
     <packaging>pom</packaging>
     <name>Sonatype Plugins Parent</name>
 
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/plugins/trunk/plugins-parent</connection>
-        <url>http://svn.sonatype.org/plugins/trunk/plugins-parent</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/plugins/trunk/plugins-parent</developerConnection>
+        <connection>scm:svn:http://svn.sonatype.org/plugins/tags/plugins-parent-7</connection>
+        <url>http://svn.sonatype.org/plugins/tags/plugins-parent-7</url>
+        <developerConnection>scm:svn:https://svn.sonatype.org/plugins/tags/plugins-parent-7</developerConnection>
     </scm>
 
     <dependencyManagement>
