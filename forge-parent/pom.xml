@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (C) 2010 Sonatype, Inc. 
+Copyright (C) 2010 Sonatype, Inc.
 
 Sonatype Inc, licenses this file to you under the Apache License,
-Version 2.0 (the "License"); you may not use this file except in 
+Version 2.0 (the "License"); you may not use this file except in
 compliance with the License.  You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
@@ -17,7 +17,7 @@ under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
@@ -43,6 +43,8 @@ under the License.
         <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
         <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
         <forgeSnapshotUrl>https://repository.sonatype.org/content/repositories/snapshots</forgeSnapshotUrl>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <distributionManagement>
@@ -124,6 +126,8 @@ under the License.
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.1</version>
                     <configuration>
+                        <!--  here to prevent hang see MGPG-9 -->
+                        <mavenExecutorId>forked-path</mavenExecutorId>
                         <useReleaseProfile>false</useReleaseProfile>
                         <goals>deploy</goals>
                         <arguments>-Prelease</arguments>
@@ -242,6 +246,8 @@ under the License.
                         <configuration>
                             <!-- this presumes the correct gpg.passphrase property in the settings "release" proile -->
                             <passphrase>${gpg.passphrase}</passphrase>
+                            <!-- most likely we are using an agent -->
+                            <useAgent>true</useAgent>
                         </configuration>
                         <executions>
                             <execution>
