@@ -43,6 +43,7 @@
 
   <properties>
     <sisu-inject.version>2.1.1</sisu-inject.version>
+    <slf4j.version>1.6.1</slf4j.version>
   </properties>
 
   <dependencyManagement>
@@ -93,6 +94,38 @@
         <artifactId>plexus-utils</artifactId>
         <version>2.0.5</version>
         <scope>compile</scope>
+      </dependency>
+
+      <!-- SLF4J Logging -->
+      <!-- Only those needed during compile and runtime phases -->
+      <!-- Spice is a library collection, so only the "simple" backend for testing and nothing more -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+        <type>jar</type>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jul-to-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+        <type>jar</type>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j.version}</version>
+        <type>jar</type>
+        <scope>test</scope>
       </dependency>
 
       <!-- Standard test -->
