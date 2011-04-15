@@ -50,6 +50,8 @@
     <dependencies>
 
       <!-- Inject Bean container -->
+      <!-- Spice hosts SISU/Plexus-legacy libraries, and they expect they are embedded into apps having these provided -->
+      <!-- That makes: shouldn't SISU be actually "provided" instead? -->
       <dependency>
         <groupId>org.sonatype.sisu</groupId>
         <artifactId>sisu-inject-bean</artifactId>
@@ -71,6 +73,7 @@
       </dependency>
 
       <!-- Plexus support (the version should be tied to SISU used ones!) -->
+      <!-- Plexus needs to be compiled against, is specific (unlike JSR330-enabled SISU is) -->
       <dependency>
         <groupId>org.sonatype.sisu</groupId>
         <artifactId>sisu-inject-plexus</artifactId>
