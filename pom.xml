@@ -30,6 +30,8 @@ under the License.
         <module>oss-parent</module>
         <module>jvnet-parent</module>
         <module>codehaus-parent</module>
+        <module>plugins-parent</module>
+        <module>nexus-plugins-parent</module>
     </modules>
 
 </project>
