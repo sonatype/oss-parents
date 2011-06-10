@@ -18,8 +18,8 @@
   <name>Sonatype Spice Components</name>
 
   <scm>
-    <connection>scm:git:git://github.com/sonatype/spice-parent.git</connection>
-    <developerConnection>scm:git:ssh://github.com/sonatype/spice-parent.git</developerConnection>
+    <connection>scm:git:git://github.com/sonatype/oss-parents.git</connection>
+    <developerConnection>scm:git:git@github.com:sonatype/oss-parents.git</developerConnection>
     <url>https://github.com/sonatype/spice-parent</url>
   </scm>
 
