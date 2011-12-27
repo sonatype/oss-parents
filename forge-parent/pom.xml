@@ -33,9 +33,9 @@ under the License.
     </organization>
 
     <scm>
-        <connection>scm:svn:http://svn.sonatype.org/forge/trunk/forge-parent</connection>
-        <url>http://svn.sonatype.org/forge/trunk/forge-parent</url>
-        <developerConnection>scm:svn:https://svn.sonatype.org/forge/trunk/forge-parent</developerConnection>
+        <connection>scm:git:git://github.com/sonatype/oss-parents.git</connection>
+        <url>https://github.com/sonatype/oss-parents</url>
+        <developerConnection>scm:git:git@github.com:sonatype/oss-parents.git</developerConnection>
     </scm>
 
     <properties>
