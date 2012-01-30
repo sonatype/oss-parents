@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:git://github.com/sonatype/oss-parents.git</connection>
     <developerConnection>scm:git:git@github.com:sonatype/oss-parents.git</developerConnection>
-    <url>https://github.com/sonatype/spice-parent</url>
+    <url>https://github.com/sonatype/oss-parents</url>
   </scm>
 
   <licenses>
@@ -43,6 +43,7 @@
   <properties>
     <sisu-inject.version>2.1.1</sisu-inject.version>
     <slf4j.version>1.6.1</slf4j.version>
+    <license.header>licenses/header-alv2.txt</license.header>
   </properties>
 
   <dependencyManagement>
@@ -161,6 +162,61 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <!-- Manually run with: mvn clean com.mycila.maven-license-plugin:maven-license-plugin:1.9.0:format -->
+        <plugin>
+          <groupId>com.mycila.maven-license-plugin</groupId>
+          <artifactId>maven-license-plugin</artifactId>
+          <version>1.9.0</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+            <strictCheck>true</strictCheck>
+            <useDefaultExcludes>false</useDefaultExcludes>
+            <includes>
+              <include>**/*.java</include>
+              <include>**/*.vm</include>
+              <include>**/*.xml</include>
+              <include>**/*.groovy</include>
+              <include>**/*.aj</include>
+              <include>**/*.css</include>
+              <include>**/*.html</include>
+              <include>**/*.js</include>
+            </includes>
+            <excludes>
+              <exclude>**/target/**/</exclude>
+              <!-- grid makes this directory -->
+              <exclude>.maven/**</exclude>
+              <!-- eclipse makes this directory -->
+              <exclude>**/.settings/**</exclude>
+              <!-- temp file created by maven-shade-plugin in basedir, deleted on maven jvm exit but possibly still around during license check -->
+              <exclude>**/dependency-reduced-pom.xml</exclude>
+              <!-- netbeans adds these -->
+              <exclude>**/nbactions*.xml</exclude>
+              <exclude>**/nb-configuration.xml</exclude>
+              <!-- IntelliJ IDEA project directory-->
+              <exclude>**/.idea/**</exclude>
+            </excludes>
+            <mapping>
+              <vm>XML_STYLE</vm>
+              <groovy>JAVADOC_STYLE</groovy>
+              <aj>JAVADOC_STYLE</aj>
+            </mapping>
+            <properties>
+              <year>2012</year>
+            </properties>
+            <!-- this is important for multi-module project -->
+            <aggregate>true</aggregate>
+          </configuration>
+          <goals>
+            <goal>check</goal>
+          </goals>
+          <dependencies>
+            <dependency>
+              <groupId>org.sonatype.forge</groupId>
+              <artifactId>license-headers</artifactId>
+              <version>1-SNAPSHOT</version>
+            </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>

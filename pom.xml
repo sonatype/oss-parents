@@ -32,6 +32,7 @@ under the License.
         <module>codehaus-parent</module>
         <module>plugins-parent</module>
         <module>nexus-plugins-parent</module>
+        <module>license-headers</module>
     </modules>
 
 </project>
