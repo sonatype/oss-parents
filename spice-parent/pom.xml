@@ -163,7 +163,11 @@
             </execution>
           </executions>
         </plugin>
-        <!-- Manually run with: mvn clean com.mycila.maven-license-plugin:maven-license-plugin:1.9.0:format -->
+        <!-- Manually run with: mvn license:format -N
+             Consider adding a pluginGroups section for this plugin in
+             your settings.xml as it may conflict with org.codehaus.mojo:license-maven-plugin
+             <pluginGroup>com.mycila.maven-license-plugin</pluginGroup>
+          -->
         <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
@@ -183,18 +187,29 @@
               <include>**/*.js</include>
             </includes>
             <excludes>
+            <!-- included selected entries from: http://code.google.com/p/maven-license-plugin/wiki/Configuration#Default_excludes -->
               <exclude>**/target/**/</exclude>
               <!-- grid makes this directory -->
               <exclude>.maven/**</exclude>
-              <!-- eclipse makes this directory -->
+              <!-- eclipse makes these files -->
               <exclude>**/.settings/**</exclude>
+              <exclude>**/.classpath</exclude>
+              <exclude>**/.project</exclude>
               <!-- temp file created by maven-shade-plugin in basedir, deleted on maven jvm exit but possibly still around during license check -->
               <exclude>**/dependency-reduced-pom.xml</exclude>
               <!-- netbeans adds these -->
               <exclude>**/nbactions*.xml</exclude>
               <exclude>**/nb-configuration.xml</exclude>
-              <!-- IntelliJ IDEA project directory-->
+              <!-- IntelliJ IDEA project directory and files-->
               <exclude>**/.idea/**</exclude>
+              <exclude>**/*.iml</exclude>
+              <exclude>**/*.ipr</exclude>
+              <exclude>**/*.iws</exclude>
+              <!-- Mac finder droppings -->
+              <exclude>**/.DS_Store</exclude>
+              <!-- git -->
+              <exclude>**/.git</exclude>
+              <exclude>**/.git/**</exclude>
             </excludes>
             <mapping>
               <vm>XML_STYLE</vm>
