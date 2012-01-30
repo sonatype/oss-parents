@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>license-headers</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>1</version>
 
   <name>Sonatype License Headers</name>
 
