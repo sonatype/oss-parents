@@ -208,7 +208,7 @@
               <!-- Mac finder droppings -->
               <exclude>**/.DS_Store</exclude>
               <!-- git -->
-              <exclude>**/.git</exclude>
+              <exclude>**/.git*</exclude>
               <exclude>**/.git/**</exclude>
             </excludes>
             <mapping>
