@@ -11,13 +11,12 @@
   ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.java</groupId>
 	<artifactId>jvnet-parent</artifactId>
-	<version>1-SNAPSHOT</version>
+	<version>2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Java.net Parent</name>
@@ -25,9 +24,9 @@
 	<description>Java.net - The Source for Java Technology Collaboration</description>
 
 	<scm>
-		<connection>scm:svn:http://svn.sonatype.org/spice/trunk/oss/jvnet-parent</connection>
-		<developerConnection>scm:svn:https://svn.sonatype.org/spice/trunk/oss/jvnet-parent</developerConnection>
-		<url>http://svn.sonatype.org/spice/trunk/oss/jvnet-parent</url>
+		<connection>scm:git:git@github.com:sonatype/jvnet-parent.git</connection>
+		<developerConnection>scm:git:git@github.com:sonatype/jvnet-parent.git</developerConnection>
+		<url>https://github.com/sonatype/jvnet-parent</url>
 	</scm>
 
 	<repositories>
@@ -155,3 +154,4 @@
 	</profiles>
 
 </project>
+
