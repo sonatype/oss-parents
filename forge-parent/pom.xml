@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (C) 2010 Sonatype, Inc.
+Copyright (C) 2012 Sonatype, Inc.
 
 Sonatype Inc, licenses this file to you under the Apache License,
 Version 2.0 (the "License"); you may not use this file except in
@@ -129,6 +129,7 @@ under the License.
                     <configuration>
                         <!--  here to prevent hang see MGPG-9 -->
                         <mavenExecutorId>forked-path</mavenExecutorId>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
                         <useReleaseProfile>false</useReleaseProfile>
                         <goals>deploy</goals>
                         <arguments>-Prelease</arguments>
