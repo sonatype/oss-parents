@@ -25,7 +25,7 @@ under the License.
   </parent>
   <groupId>org.sonatype.plugins</groupId>
   <artifactId>plugins-parent</artifactId>
-  <version>9</version>
+  <version>10-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Sonatype Plugins Parent</name>
 
