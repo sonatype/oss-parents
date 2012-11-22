@@ -32,7 +32,7 @@
 
   <ciManagement>
     <system>Hudson</system>
-    <url>https://grid.sonatype.org/ci/view/Spice/</url>
+    <url>https://builds.sonatype.org/job/oss-parents/</url>
   </ciManagement>
 
   <issueManagement>
