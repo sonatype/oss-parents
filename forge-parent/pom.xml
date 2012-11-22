@@ -40,6 +40,7 @@ under the License.
     </scm>
 
     <properties>
+        <nexusUrl>https://repository.sonatype.org/</nexusUrl>
         <forgeReleaseId>forge-releases</forgeReleaseId>
         <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
         <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
@@ -105,7 +106,7 @@ under the License.
                     <extensions>true</extensions>
                     <configuration>
                         <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
-                        <nexusUrl>https://repository.sonatype.org</nexusUrl>
+                        <nexusUrl>${nexusUrl}</nexusUrl>
                         <tags>
                             <localUsername>${env.USER}</localUsername>
                             <javaVersion>${java.version}</javaVersion>
