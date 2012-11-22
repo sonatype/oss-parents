@@ -104,6 +104,8 @@ under the License.
                     <version>1.2</version>
                     <extensions>true</extensions>
                     <configuration>
+                        <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
+                        <nexusUrl>https://repository.sonatype.org</nexusUrl>
                         <tags>
                             <localUsername>${env.USER}</localUsername>
                             <javaVersion>${java.version}</javaVersion>
@@ -216,9 +218,7 @@ under the License.
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <configuration>
-                    <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
                     <serverId>${forgeSnapshotId}</serverId>
-                    <nexusUrl>${forgeSnapshotUrl}</nexusUrl>
                 </configuration>
             </plugin>
         </plugins>
@@ -298,7 +298,6 @@ under the License.
                         <configuration>
                             <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
                             <serverId>${forgeReleaseId}</serverId>
-                            <nexusUrl>${forgeReleaseUrl}</nexusUrl>
                         </configuration>
                     </plugin>
                     <plugin>
