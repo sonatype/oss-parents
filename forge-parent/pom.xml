@@ -52,6 +52,11 @@
         <developerConnection>scm:git:git@github.com:sonatype/oss-parents.git</developerConnection>
     </scm>
 
+    <ciManagement>
+        <system>Hudson</system>
+        <url>https://builds.sonatype.org/job/oss-parents/</url>
+    </ciManagement>
+
     <properties>
         <nexusUrl>https://repository.sonatype.org/</nexusUrl>
         <forgeReleaseId>forge-releases</forgeReleaseId>
