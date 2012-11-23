@@ -1,3 +1,17 @@
+<!--
+
+    Copyright (c) 2008-2012 Sonatype, Inc. All rights reserved.
+
+    This program is licensed to you under the Apache License Version 2.0,
+    and you may not use this file except in compliance with the Apache License Version 2.0.
+    You may obtain a copy of the Apache License Version 2.0 at http://www.apache.org/licenses/LICENSE-2.0.
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the Apache License Version 2.0 is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
@@ -5,7 +19,7 @@
   <parent>
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
-    <version>12</version>
+    <version>16</version>
     <relativePath />
   </parent>
 
@@ -22,19 +36,6 @@
     <url>https://github.com/sonatype/oss-parents</url>
   </scm>
 
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <ciManagement>
-    <system>Hudson</system>
-    <url>https://builds.sonatype.org/job/oss-parents/</url>
-  </ciManagement>
-
   <issueManagement>
     <system>JIRA</system>
     <url>https://issues.sonatype.org/browse/SPICE</url>
@@ -43,7 +44,6 @@
   <properties>
     <sisu-inject.version>2.1.1</sisu-inject.version>
     <slf4j.version>1.6.1</slf4j.version>
-    <license.header>licenses/header-alv2.txt</license.header>
   </properties>
 
   <dependencyManagement>
@@ -162,76 +162,6 @@
               </goals>
             </execution>
           </executions>
-        </plugin>
-        <!-- Manually run with: mvn license:format -N
-             Consider adding a pluginGroups section for this plugin in
-             your settings.xml as it may conflict with org.codehaus.mojo:license-maven-plugin
-             <pluginGroup>com.mycila.maven-license-plugin</pluginGroup>
-          -->
-        <plugin>
-          <groupId>com.mycila.maven-license-plugin</groupId>
-          <artifactId>maven-license-plugin</artifactId>
-          <version>1.9.0</version>
-          <configuration>
-            <encoding>UTF-8</encoding>
-            <strictCheck>true</strictCheck>
-            <useDefaultExcludes>false</useDefaultExcludes>
-            <includes>
-              <include>**/*.java</include>
-              <include>**/*.vm</include>
-              <include>**/*.xml</include>
-              <include>**/*.groovy</include>
-              <include>**/*.aj</include>
-              <include>**/*.css</include>
-              <include>**/*.html</include>
-              <include>**/*.js</include>
-            </includes>
-            <excludes>
-            <!-- included selected entries from: http://code.google.com/p/maven-license-plugin/wiki/Configuration#Default_excludes -->
-              <exclude>**/target/**/</exclude>
-              <!-- grid makes this directory -->
-              <exclude>.maven/**</exclude>
-              <!-- eclipse makes these files -->
-              <exclude>**/.settings/**</exclude>
-              <exclude>**/.classpath</exclude>
-              <exclude>**/.project</exclude>
-              <!-- temp file created by maven-shade-plugin in basedir, deleted on maven jvm exit but possibly still around during license check -->
-              <exclude>**/dependency-reduced-pom.xml</exclude>
-              <!-- netbeans adds these -->
-              <exclude>**/nbactions*.xml</exclude>
-              <exclude>**/nb-configuration.xml</exclude>
-              <!-- IntelliJ IDEA project directory and files-->
-              <exclude>**/.idea/**</exclude>
-              <exclude>**/*.iml</exclude>
-              <exclude>**/*.ipr</exclude>
-              <exclude>**/*.iws</exclude>
-              <!-- Mac finder droppings -->
-              <exclude>**/.DS_Store</exclude>
-              <!-- git -->
-              <exclude>**/.git*</exclude>
-              <exclude>**/.git/**</exclude>
-            </excludes>
-            <mapping>
-              <vm>XML_STYLE</vm>
-              <groovy>JAVADOC_STYLE</groovy>
-              <aj>JAVADOC_STYLE</aj>
-            </mapping>
-            <properties>
-              <year>2012</year>
-            </properties>
-            <!-- this is important for multi-module project -->
-            <aggregate>true</aggregate>
-          </configuration>
-          <goals>
-            <goal>check</goal>
-          </goals>
-          <dependencies>
-            <dependency>
-              <groupId>org.sonatype.forge</groupId>
-              <artifactId>license-headers</artifactId>
-              <version>1</version>
-            </dependency>
-          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
