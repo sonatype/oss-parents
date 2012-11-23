@@ -35,6 +35,7 @@
         <license>
             <name>ASLv2</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 
