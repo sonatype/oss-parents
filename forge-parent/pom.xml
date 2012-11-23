@@ -123,6 +123,7 @@
                             <localUsername>${env.USER}</localUsername>
                             <javaVersion>${java.version}</javaVersion>
                         </tags>
+                        <description>${project.artifactId}-${project.version}</description>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -363,6 +364,7 @@
                         <configuration>
                             <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
                             <serverId>${forgeReleaseId}</serverId>
+                            <updateReleaseInfo>true</updateReleaseInfo>
                         </configuration>
                     </plugin>
                     <plugin>
