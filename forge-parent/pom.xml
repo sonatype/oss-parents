@@ -123,7 +123,7 @@
                             <localUsername>${env.USER}</localUsername>
                             <javaVersion>${java.version}</javaVersion>
                         </tags>
-                        <description>${project.artifactId}-${project.version}</description>
+                        <description>${project.groupId}:${project.artifactId}:${project.version}</description>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -156,7 +156,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.2.1</version>
                     <configuration>
-                        <!--  here to prevent hang see MGPG-9 -->
+                        <!--  forked path prevents hang see MGPG-9 -->
                         <mavenExecutorId>forked-path</mavenExecutorId>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <useReleaseProfile>false</useReleaseProfile>
@@ -362,7 +362,7 @@
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <configuration>
-                            <!-- FIXME as of 1.2 a bug in deferred deploy requires id and url to be explicitly set instead of reaping it from distMgt -->
+                            <!-- FIXME as of 1.2 a bug in deferred deploy requires url to be explicitly set instead of reaping it from distMgt -->
                             <serverId>${forgeReleaseId}</serverId>
                             <updateReleaseInfo>true</updateReleaseInfo>
                         </configuration>
