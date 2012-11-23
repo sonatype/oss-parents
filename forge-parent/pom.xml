@@ -19,7 +19,7 @@
     <groupId>org.sonatype.forge</groupId>
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
-    <version>15</version>
+    <version>16-SNAPSHOT</version>
     <name>Sonatype Forge Parent Pom</name>
     <description>${project.name}</description>
 
