@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (C) 2012 Sonatype, Inc.
 
-Sonatype Inc, licenses this file to you under the Apache License,
-Version 2.0 (the "License"); you may not use this file except in
-compliance with the License.  You may obtain a copy of the License at
+    Copyright (c) 2008-2012 Sonatype, Inc. All rights reserved.
 
-http://www.apache.org/licenses/LICENSE-2.0
+    This program is licensed to you under the Apache License Version 2.0,
+    and you may not use this file except in compliance with the Apache License Version 2.0.
+    You may obtain a copy of the Apache License Version 2.0 at http://www.apache.org/licenses/LICENSE-2.0.
 
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the Apache License Version 2.0 is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
+
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -24,6 +22,7 @@ under the License.
     <packaging>pom</packaging>
     <version>13-SNAPSHOT</version>
     <name>Sonatype Forge Parent Pom</name>
+    <description>${project.name}</description>
 
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
@@ -32,6 +31,20 @@ under the License.
         <name>Sonatype, Inc.</name>
         <url>http://www.sonatype.com/</url>
     </organization>
+
+    <licenses>
+        <license>
+            <name>ASLv2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Sonatype, Inc.</name>
+            <organization>Sonatype, Inc.</organization>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:git://github.com/sonatype/oss-parents.git</connection>
@@ -194,10 +207,62 @@ under the License.
                     <artifactId>animal-sniffer-maven-plugin</artifactId>
                     <version>1.6</version>
                 </plugin>
+                <!-- Manually run with: mvn license:format -N
+                     Consider adding a pluginGroups section for this plugin in
+                     your settings.xml as it may conflict with org.codehaus.mojo:license-maven-plugin
+                     <pluginGroup>com.mycila.maven-license-plugin</pluginGroup>
+                  -->
                 <plugin>
                     <groupId>com.mycila.maven-license-plugin</groupId>
                     <artifactId>maven-license-plugin</artifactId>
                     <version>1.9.0</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <strictCheck>true</strictCheck>
+                        <useDefaultExcludes>false</useDefaultExcludes>
+                        <header>${project.basedir}/header.txt</header>
+                        <includes>
+                            <include>**/pom.xml</include>
+                            <include>**/*.xml</include>
+                            <include>**/*.xsd</include>
+                            <include>**/*.xjb</include>
+                            <include>**/*.properties</include>
+                            <include>**/*.ini</include>
+                            <include>**/*.java</include>
+                            <include>**/*.groovy</include>
+                            <include>**/*.scala</include>
+                            <include>**/*.aj</include>
+                            <include>**/*.js</include>
+                            <include>**/*.css</include>
+                            <include>**/*.help</include>
+                            <include>**/*.proto</include>
+                            <include>**/*.sm</include>
+                            <include>**/*.bat</include>
+                            <include>**/*.xsl</include>
+                            <include>**/*.html</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/target/**</exclude>
+                            <exclude>**/.*/**</exclude>
+                            <!-- temp file created by maven-shade-plugin in basedir, deleted on maven jvm exit but possibly still around during license check -->
+                            <exclude>**/dependency-reduced-pom.xml</exclude>
+                            <exclude>**/nbactions*.xml</exclude>
+                            <exclude>**/nb-configuration.xml</exclude>
+                            <exclude>**/atlassian-ide-plugin.xml</exclude>
+                        </excludes>
+                        <mapping>
+                            <scala>SLASHSTAR_STYLE</scala>
+                            <java>SLASHSTAR_STYLE</java>
+                            <xjb>XML_STYLE</xjb>
+                            <proto>DOUBLESLASH_STYLE</proto>
+                            <sm>DOUBLESLASH_STYLE</sm>
+                            <help>SCRIPT_STYLE</help>
+                            <ini>SCRIPT_STYLE</ini>
+                            <groovy>JAVADOC_STYLE</groovy>
+                            <aj>JAVADOC_STYLE</aj>
+                        </mapping>
+                        <aggregate>true</aggregate>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.modello</groupId>
@@ -271,7 +336,7 @@ under the License.
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <configuration>
-                            <!-- this presumes the correct gpg.passphrase property in the settings "release" proile -->
+                            <!-- this presumes the correct gpg.passphrase property in the settings "release" profile -->
                             <passphrase>${gpg.passphrase}</passphrase>
                             <!-- most likely we are using an agent -->
                             <useAgent>true</useAgent>
@@ -328,7 +393,6 @@ under the License.
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>
