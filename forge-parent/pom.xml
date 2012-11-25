@@ -353,6 +353,10 @@
         <profile>
             <id>release</id>
             <build>
+                <properties>
+                    <!-- in multi-module deployment, the last module executed artifactId will be used in deploy description. projects should override -->                    
+                    <description>${project.groupId}:${project.artifactId}:${project.version}</description>
+                </properties>
                 <plugins>
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
                     <plugin>
@@ -388,7 +392,7 @@
                             <!-- FIXME as of 1.2 a bug in deferred deploy requires url to be explicitly set instead of reaping it from distMgt -->
                             <serverId>${forgeReleaseId}</serverId>
                             <updateReleaseInfo>true</updateReleaseInfo>
-                            <description>${project.groupId}:${project.artifactId}:${project.version}</description>
+                            <description>${description}</description>
                         </configuration>
                     </plugin>
                     <plugin>
