@@ -57,6 +57,10 @@
         <url>https://builds.sonatype.org/job/oss-parents/</url>
     </ciManagement>
 
+    <prerequisites>
+       <maven>3.0.4</maven>
+    </prerequisites>
+
     <properties>
         <nexusUrl>https://repository.sonatype.org/</nexusUrl>
         <forgeReleaseId>forge-releases</forgeReleaseId>
