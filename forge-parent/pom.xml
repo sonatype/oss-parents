@@ -272,6 +272,7 @@
                             <exclude>**/nbactions*.xml</exclude>
                             <exclude>**/nb-configuration.xml</exclude>
                             <exclude>**/atlassian-ide-plugin.xml</exclude>
+                            <exclude>**/release.properties</exclude>
                         </excludes>
                         <mapping>
                             <scala>SLASHSTAR_STYLE</scala>
