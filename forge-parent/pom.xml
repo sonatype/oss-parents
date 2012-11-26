@@ -352,11 +352,11 @@
     <profiles>
         <profile>
             <id>release</id>
+            <properties>
+              <!-- in multi-module deployment, the last module executed artifactId will be used in deploy description. projects should override -->                    
+              <description>${project.groupId}:${project.artifactId}:${project.version}</description>
+            </properties>
             <build>
-                <properties>
-                    <!-- in multi-module deployment, the last module executed artifactId will be used in deploy description. projects should override -->                    
-                    <description>${project.groupId}:${project.artifactId}:${project.version}</description>
-                </properties>
                 <plugins>
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
                     <plugin>
