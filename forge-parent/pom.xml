@@ -54,9 +54,14 @@
 
   <ciManagement>
     <system>Hudson</system>
-    <url>https://builds.sonatype.org/job/oss-parents/</url>
+    <url>https://builds.sonatype.org/</url>
   </ciManagement>
 
+  <issueManagement>
+    <system>Jira</system>
+    <url>https://issues.sonatype.org</url>
+  </issueManagement>
+  
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
@@ -95,7 +100,12 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>1.7</version>
-        </plugin>  
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.7</version>
+        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
@@ -129,11 +139,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.7</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-eclipse-plugin</artifactId>
-          <version>2.8</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -181,7 +186,7 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>2.9</version>
         </plugin>
-         <!-- mvn license:format -N, add to settings <pluginGroup>com.mycila.maven-license-plugin</pluginGroup> -->
+        <!-- mvn license:format -N, add to settings <pluginGroup>com.mycila.maven-license-plugin</pluginGroup> -->
         <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
@@ -210,6 +215,7 @@
               <include>**/*.bat</include>
               <include>**/*.xsl</include>
               <include>**/*.html</include>
+              <include>**/*.vm</include>
             </includes>
             <excludes>
               <exclude>**/target/**</exclude>
@@ -230,9 +236,13 @@
               <proto>DOUBLESLASH_STYLE</proto>
               <scala>SLASHSTAR_STYLE</scala>
               <sm>DOUBLESLASH_STYLE</sm>
+              <vm>SHARPSTAR_STYLE</vm>
               <xjb>XML_STYLE</xjb>
             </mapping>
             <aggregate>true</aggregate>
+            <goals>
+              <goal>check</goal>
+            </goals>
           </configuration>
         </plugin>
         <plugin>
@@ -256,7 +266,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
-          <version>1.2</version>
+          <version>1.4</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-repository-plugin</artifactId>
+          <version>2.3.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -276,7 +291,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>2.2</version>
+          <version>3.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -333,6 +348,20 @@
           <serverId>${forgeSnapshotId}</serverId>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+            <configuration>
+              <includePom>true</includePom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
@@ -377,14 +406,22 @@
       <id>release</id>
       <build>
         <plugins>
-                    <!-- We want to sign the artifact, the POM, and all attached artifacts -->
+          <!-- deploy plugin is left in case some project would like to use it instead of staging plugin -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
+          </plugin>
+          <!-- We want to sign the artifact, the POM, and all attached artifacts -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <configuration>
-                            <!-- this presumes the correct gpg.passphrase property in the settings "release" profile -->
+              <!-- this presumes the correct gpg.passphrase property in the settings "release" profile -->
               <passphrase>${gpg.passphrase}</passphrase>
-                            <!-- most likely we are using an agent -->
+              <!-- most likely we are using an agent -->
               <useAgent>true</useAgent>
             </configuration>
             <executions>
@@ -395,42 +432,9 @@
               </execution>
             </executions>
           </plugin>
-                    <!-- deploy plugin is left in case some project would like to use it instead of staging plugin -->
-          <plugin>
-            <inherited>true</inherited>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <configuration>
-              <updateReleaseInfo>true</updateReleaseInfo>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <configuration>
-                            <!-- FIXME as of 1.2 a bug in deferred deploy requires url to be explicitly set instead of reaping it from distMgt -->
-              <serverId>${forgeReleaseId}</serverId>
-              <updateReleaseInfo>true</updateReleaseInfo>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-              <encoding>${project.build.sourceEncoding}</encoding>
-            </configuration>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -439,6 +443,15 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <configuration>
+              <!-- FIXME as of 1.2 a bug in deferred deploy requires url to be explicitly set instead of reaping it from distMgt -->
+              <serverId>${forgeReleaseId}</serverId>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
           </plugin>
         </plugins>
       </build>
