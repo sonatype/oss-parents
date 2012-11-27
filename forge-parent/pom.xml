@@ -20,9 +20,9 @@
     <artifactId>forge-parent</artifactId>
     <packaging>pom</packaging>
     <version>22-SNAPSHOT</version>
-    <name>Sonatype Forge Parent Pom</name>
+    
+    <name>${project.artifactId}</name>
     <description>${project.name}</description>
-
     <inceptionYear>2008</inceptionYear>
     <url>http://forge.sonatype.com/</url>
 
