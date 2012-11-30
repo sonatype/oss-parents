@@ -90,7 +90,9 @@
   </distributionManagement>
 
   <build>
-
+    
+    <defaultGoal>install</defaultGoal>
+    
     <resources>
       <resource>
         <directory>${project.basedir}/src/main/resources</directory>
