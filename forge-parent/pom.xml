@@ -310,7 +310,7 @@
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>  
             <goals>deploy</goals>
-            <!-- pushChanges and localCheckout for dvcs and require a 'git push origin --tags :' after release:perform -->
+            <!-- pushChanges and localCheckout for dvcs and require a 'git push origin \-\-tags :' after release:perform -->
             <localCheckout>${localCheckout}</localCheckout>
             <pushChanges>${pushChanges}</pushChanges>
             <!--  forked path prevents hang see MGPG-9 -->
