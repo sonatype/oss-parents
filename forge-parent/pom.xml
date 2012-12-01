@@ -76,6 +76,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
+    <localCheckout>true</localCheckout>
+    <pushChanges>false</pushChanges>
   </properties>
 
   <distributionManagement>
@@ -306,12 +308,15 @@
           <artifactId>maven-release-plugin</artifactId>
           <version>2.2.1</version>
           <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>  
+            <goals>deploy</goals>
+            <!-- pushChanges and localCheckout for dvcs and require a 'git push origin --tags :' after release:perform -->
+            <localCheckout>${localCheckout}</localCheckout>
+            <pushChanges>${pushChanges}</pushChanges>
             <!--  forked path prevents hang see MGPG-9 -->
             <mavenExecutorId>forked-path</mavenExecutorId>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-            <useReleaseProfile>false</useReleaseProfile>
             <releaseProfiles>release</releaseProfiles>
-            <goals>deploy</goals>
+            <useReleaseProfile>false</useReleaseProfile>
           </configuration>
         </plugin>
         <plugin>
