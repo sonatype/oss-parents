@@ -204,6 +204,9 @@
             <redirectTestOutputToFile>${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
             <forkMode>always</forkMode>
             <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+            <systemPropertyVariables>
+              <java.awt.headless>true</java.awt.headless>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
         <plugin>
@@ -377,6 +380,9 @@
             <redirectTestOutputToFile>${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
             <!-- make friendly with -Dtest=skip since there is no -DskipUnits like there is -DskipITs -->
             <failIfNoSpecifiedTests>${surefire.failIfNoSpecifiedTests}</failIfNoSpecifiedTests>
+            <systemPropertyVariables>
+              <java.awt.headless>true</java.awt.headless>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
         <plugin>
