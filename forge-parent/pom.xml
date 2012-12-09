@@ -92,9 +92,9 @@
   </distributionManagement>
 
   <build>
-    
+
     <defaultGoal>install</defaultGoal>
-    
+
     <resources>
       <resource>
         <directory>${project.basedir}/src/main/resources</directory>
@@ -310,14 +310,14 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>2.9</version>
+          <version>3.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.2.1</version>
           <configuration>
-            <autoVersionSubmodules>true</autoVersionSubmodules>  
+            <autoVersionSubmodules>true</autoVersionSubmodules>
             <goals>deploy</goals>
             <!-- pushChanges and localCheckout for dvcs and require a 'git push origin \-\-tags :' after release:perform -->
             <localCheckout>${localCheckout}</localCheckout>
