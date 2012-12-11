@@ -78,6 +78,7 @@
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
     <localCheckout>true</localCheckout>
     <pushChanges>false</pushChanges>
+    <failsafe.timeout>600</failsafe.timeout>
   </properties>
 
   <distributionManagement>
@@ -208,7 +209,7 @@
           <configuration>
             <redirectTestOutputToFile>${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
             <forkMode>always</forkMode>
-            <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+            <forkedProcessTimeoutInSeconds>${failsafe.timeout}</forkedProcessTimeoutInSeconds>
             <systemPropertyVariables>
               <java.awt.headless>true</java.awt.headless>
             </systemPropertyVariables>
