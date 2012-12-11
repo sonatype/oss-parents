@@ -278,6 +278,7 @@
               <include>**/*.xsl</include>
               <include>**/*.html</include>
               <include>**/*.vm</include>
+              <include>**/*.md</include>
             </includes>
             <excludes>
               <exclude>**/target/**</exclude>
@@ -300,6 +301,7 @@
               <sm>DOUBLESLASH_STYLE</sm>
               <vm>SHARPSTAR_STYLE</vm>
               <xjb>XML_STYLE</xjb>
+              <md>XML_STYLE</md>
             </mapping>
             <aggregate>true</aggregate>
             <goals>
