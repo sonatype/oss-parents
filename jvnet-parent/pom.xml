@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2007-2011 Sonatype, Inc. All rights reserved.
+  ~ Copyright (c) 2007-2012 Sonatype, Inc. All rights reserved.
   ~
   ~ This program is licensed to you under the Apache License Version 2.0,
   ~ and you may not use this file except in compliance with the Apache License Version 2.0.
@@ -16,7 +16,7 @@
 
 	<groupId>net.java</groupId>
 	<artifactId>jvnet-parent</artifactId>
-	<version>2-SNAPSHOT</version>
+	<version>4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Java.net Parent</name>
@@ -28,21 +28,6 @@
 		<developerConnection>scm:git:git@github.com:sonatype/jvnet-parent.git</developerConnection>
 		<url>https://github.com/sonatype/jvnet-parent</url>
 	</scm>
-
-	<repositories>
-		<repository>
-			<id>jvnet-nexus-snapshots</id>
-			<name>Java.net Nexus Snapshots Repository</name>
-			<url>https://maven.java.net/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 
 	<distributionManagement>
 		<snapshotRepository>
@@ -58,40 +43,15 @@
 	</distributionManagement>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-					<execution>
-						<id>enforce-maven</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<requireMavenVersion>
-									<version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</version>
-									<message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures
-										and checksums respectively.</message>
-								</requireMavenVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.1</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<useReleaseProfile>false</useReleaseProfile>
-						<arguments>-Pjvnet-release</arguments>
+						<arguments>-Pjvnet-release ${release.arguments}</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -111,7 +71,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
-						<version>2.1.2</version>
 						<executions>
 							<execution>
 								<id>attach-sources</id>
@@ -124,7 +83,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.7</version>
 						<executions>
 							<execution>
 								<id>attach-javadocs</id>
@@ -134,10 +92,30 @@
 							</execution>
 						</executions>
 					</plugin>
+                                        <plugin>
+                                                <groupId>org.apache.maven.plugins</groupId>
+                                                <artifactId>maven-enforcer-plugin</artifactId>
+                                                <executions>
+                                                        <execution>
+                                                                <id>enforce-maven</id>
+                                                                <goals>
+                                                                        <goal>enforce</goal>
+                                                                </goals>
+                                                                <configuration>
+                                                                        <rules>
+                                                                                <requireMavenVersion>
+                                                                                        <version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</version>
+                                                                                        <message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures
+                                                                                                and checksums respectively.</message>
+                                                                                </requireMavenVersion>
+                                                                        </rules>
+                                                                </configuration>
+                                                        </execution>
+                                                </executions>
+                                        </plugin>                                        
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.1</version>
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>
@@ -151,7 +129,99 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>snapshots</id>
+                        <repositories>
+                                <repository>
+                                        <id>jvnet-nexus-snapshots</id>
+                                        <name>Java.net Nexus Snapshots Repository</name>
+                                        <url>https://maven.java.net/content/repositories/snapshots</url>
+                                        <releases>
+                                                <enabled>false</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>true</enabled>
+                                        </snapshots>
+                                </repository>
+                        </repositories>
+                        <pluginRepositories>
+                                <pluginRepository>
+                                        <id>jvnet-nexus-snapshots</id>
+                                        <name>Java.net Nexus Snapshots Repository</name>
+                                        <url>https://maven.java.net/content/repositories/snapshots</url>
+                                        <releases>
+                                                <enabled>false</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>true</enabled>
+                                        </snapshots>
+                                </pluginRepository>
+                        </pluginRepositories>
+		</profile>
+                <profile>
+                        <id>staging</id>
+                        <activation>
+                                <activeByDefault>false</activeByDefault>
+                        </activation>
+                        <repositories>
+                                <repository>
+                                        <id>jvnet-nexus-staging</id>
+                                        <name>Java.net Staging Repositoriy</name>
+                                        <url>https://maven.java.net/content/repositories/staging/</url>
+                                        <releases>
+                                                <enabled>true</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>false</enabled>
+                                        </snapshots>
+                                </repository>
+                        </repositories>
+                        <pluginRepositories>
+                                <pluginRepository>
+                                        <id>jvnet-nexus-staging</id>
+                                        <name>Java.net Staging Repositoriy</name>
+                                        <url>https://maven.java.net/content/repositories/staging/</url>
+                                        <releases>
+                                                <enabled>true</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>false</enabled>
+                                        </snapshots>
+                                </pluginRepository>
+                        </pluginRepositories>            
+                </profile>
+                <profile>
+                        <id>promoted</id>
+                        <activation>
+                                <activeByDefault>false</activeByDefault>
+                        </activation>
+                        <repositories>
+                                <repository>
+                                        <id>jvnet-nexus-promoted</id>
+                                        <name>Java.net Promoted Repositories</name>
+                                        <url>https://maven.java.net/content/repositories/promoted/</url>
+                                        <releases>
+                                                <enabled>true</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>false</enabled>
+                                        </snapshots>                                        
+                                </repository>
+                        </repositories>
+                        <pluginRepositories>
+                                <pluginRepository>
+                                        <id>jvnet-nexus-promoted</id>
+                                        <name>Java.net Promoted Repositories</name>
+                                        <url>https://maven.java.net/content/repositories/promoted/</url>
+                                        <releases>
+                                                <enabled>true</enabled>
+                                        </releases>
+                                        <snapshots>
+                                                <enabled>false</enabled>
+                                        </snapshots>                                        
+                                </pluginRepository>
+                        </pluginRepositories>            
+                </profile>                
 	</profiles>
-
 </project>
 
