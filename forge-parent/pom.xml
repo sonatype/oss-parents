@@ -79,6 +79,7 @@
     <localCheckout>true</localCheckout>
     <pushChanges>false</pushChanges>
     <failsafe.timeout>600</failsafe.timeout>
+    <nexus-staging.version>1.4.1</nexus-staging.version>
   </properties>
 
   <distributionManagement>
@@ -368,7 +369,7 @@
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.4</version>
+          <version>${nexus-staging.version}</version>
           <extensions>true</extensions>
           <configuration>
             <nexusUrl>${nexusUrl}</nexusUrl>
