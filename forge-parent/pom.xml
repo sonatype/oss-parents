@@ -79,7 +79,7 @@
     <localCheckout>true</localCheckout>
     <pushChanges>false</pushChanges>
     <failsafe.timeout>600</failsafe.timeout>
-    <nexus-staging.version>1.4.2</nexus-staging.version>
+    <nexus-staging.version>1.4.3</nexus-staging.version>
   </properties>
 
   <distributionManagement>
