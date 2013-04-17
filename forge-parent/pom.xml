@@ -19,7 +19,7 @@
   <groupId>org.sonatype.forge</groupId>
   <artifactId>forge-parent</artifactId>
   <packaging>pom</packaging>
-  <version>35-SNAPSHOT</version>
+  <version>35</version>
 
   <name>${project.artifactId}</name>
   <description>${project.name}</description>
