@@ -53,8 +53,8 @@
   </scm>
 
   <ciManagement>
-    <system>Hudson</system>
-    <url>https://builds.sonatype.org/</url>
+    <system>Bamboo</system>
+    <url>https://bamboo.zion.sonatype.com</url>
   </ciManagement>
 
   <issueManagement>
