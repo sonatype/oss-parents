@@ -213,6 +213,8 @@
             <forkedProcessTimeoutInSeconds>${failsafe.timeout}</forkedProcessTimeoutInSeconds>
             <systemPropertyVariables>
               <java.awt.headless>true</java.awt.headless>
+              <!-- SUREFIRE-764 workaround force forked executions to inherit -Djava.io.tmpdir=... -->
+              <java.io.tmpdir>${java.io.tmpdir}</java.io.tmpdir>
             </systemPropertyVariables>
           </configuration>
         </plugin>
@@ -390,6 +392,8 @@
             <failIfNoSpecifiedTests>${surefire.failIfNoSpecifiedTests}</failIfNoSpecifiedTests>
             <systemPropertyVariables>
               <java.awt.headless>true</java.awt.headless>
+              <!-- SUREFIRE-764 workaround force forked executions to inherit -Djava.io.tmpdir=... -->
+              <java.io.tmpdir>${java.io.tmpdir}</java.io.tmpdir>
             </systemPropertyVariables>
           </configuration>
         </plugin>
