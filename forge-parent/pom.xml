@@ -82,6 +82,10 @@
     <nexus-staging.version>1.4.4</nexus-staging.version>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
+    
+    <!-- Create build timestamp -->
+    <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
   </properties>
 
   <distributionManagement>
