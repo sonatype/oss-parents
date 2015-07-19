@@ -79,7 +79,7 @@
     <localCheckout>true</localCheckout>
     <pushChanges>false</pushChanges>
     <failsafe.timeout>600</failsafe.timeout>
-    <nexus-staging.version>1.4.4</nexus-staging.version>
+    <nexus-staging.version>1.6.5</nexus-staging.version>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     
